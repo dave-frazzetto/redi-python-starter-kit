@@ -1,0 +1,53 @@
+{
+	// General settings
+	"name": "PySpark Local",
+
+	// Docker Build settings
+	"build": { 
+		"context": "..",
+		"dockerfile": "Dockerfile"
+	},
+
+	// VSCode extensions to be installed in the dev environment
+	// These can differ from your local VSCode install
+	"customizations":{
+		"vscode": {
+			// VSCode Settings
+			"settings": { 
+				"terminal.integrated.profiles.linux": {
+					"bash": {
+						"path": "/bin/bash"
+					}
+				},
+				// Python settings
+				"python.pythonPath": "/usr/local/bin/python"
+			},
+			// VSCode extensions you want installed when the container is created.
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-toolsai.jupyter",
+				"ms-azuretools.vscode-docker",
+				"ms-python.pylint",
+				"redhat.vscode-yaml",
+				"njpwerner.autodocstring",
+				"mechatroner.rainbow-csv"
+			]
+		}
+	},
+	
+	// ENV variables
+	"containerEnv": {
+		"SHELL": "/bin/bash"
+	}
+
+	// Volumes mounts
+	// "mounts": [
+	// 	"source=${localEnv:HOME}/.kerberos,target=/home/vscode/.kerberos,type=bind,consistency=cached,readonly=true",
+	// 	"source=${localEnv:HOME}/.jdbc,target=/home/vscode/.jdbc,type=bind,consistency=cached,readonly=true"
+	// ]
+
+	// Post create commands
+	// "postCreateCommand": "echo Hello World!"
+	
+}
